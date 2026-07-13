@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MTA Ridership Around Madison Square Garden — 2026 Knicks Playoff Run</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #1a1a1a;
+    line-height: 1.55;
+  }
+  h1 { font-size: 1.6rem; line-height: 1.25; }
+  iframe {
+    width: 100%;
+    height: 700px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  footer {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 0.75rem;
+  }
+  footer a { color: #4C78A8; }
+</style>
+</head>
+<body>
+<h1>MTA Ridership Around Madison Square Garden — 2026 Knicks Playoff Run</h1>
+<p>
+Every bubble below is a subway station complex next to Madison Square Garden —
+the two 34&nbsp;St–Penn Station complexes and 34&nbsp;St–Herald&nbsp;Sq — and
+every frame is one hour between April 10 and June 12, 2026, the Knicks'
+playoff run. Bubbles grow with hourly ridership; days are colored by whether
+the Knicks played at home (orange-red), away (gold), or not at all (blue).
+Away games are the control: the same fans are watching, but nobody is walking
+out of MSG into the subway, so if home nights surge and comparable away and
+no-game nights don't, the extra riders are the arena crowd. Scrub to a home
+game's post-game hours — say Sat Apr 18 around 9&nbsp;PM, or Tue May 19 at
+11&nbsp;PM — and compare the same hours one day later.
+</p>
+<iframe src="ridership_map.html" title="Animated map of hourly MTA ridership near MSG"></iframe>
+<footer>
+Data: MTA Subway Hourly Ridership via
+<a href="https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership/5wq4-mkjj">data.ny.gov, dataset 5wq4-mkjj</a>.
+Ridership values are MTA estimates at hourly granularity.
+Code is MIT licensed; this writeup is
+<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.
+</footer>
+</body>
+</html>
