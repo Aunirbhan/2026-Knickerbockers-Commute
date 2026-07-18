@@ -17,8 +17,7 @@ gathered to watch.
 After actually plotting the data, that's not what it shows. The
 weekday/weekend trend in ridership turns out to be a much stronger,
 deterministic factor on both ridership and estimated revenue than the games
-themselves — a Friday with no game out-totals a Saturday game night citywide,
-just because weekday ridership dwarfs weekend ridership.
+themselves. So a Friday with no game seems to have greater ridership than a Saturday game night citywide. However this is just one look at it with some small data but opened my eyes to the possibilities with visualizing transit info and improving the designs. 
 
 ## How it works
 
