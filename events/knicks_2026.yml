@@ -1,0 +1,18 @@
+id: knicks_2026
+display_name: "2026 Knicks Playoff Run"
+sport: nba
+schedule_source: balldontlie
+team_id: 20            # New York Knicks (balldontlie)
+season: 2025          # NBA season is labeled by its starting year (2025-26)
+postseason: true
+window:
+  start: "2026-04-10"
+  end: "2026-06-13"
+station_scope: all_nyc
+map:
+  center: {lat: 40.7128, lon: -73.9800}
+  zoom: 10
+theme:
+  accent: "#F58426"   # Knicks orange
+  home: "#F58426"
+  away: "#006BB6"

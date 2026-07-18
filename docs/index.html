@@ -1,57 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MTA Ridership Around Madison Square Garden — 2026 Knicks Playoff Run</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    color: #1a1a1a;
-    line-height: 1.55;
-  }
-  h1 { font-size: 1.6rem; line-height: 1.25; }
-  iframe {
-    width: 100%;
-    height: 700px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-  }
-  footer {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    color: #666;
-    border-top: 1px solid #ddd;
-    padding-top: 0.75rem;
-  }
-  footer a { color: #4C78A8; }
-</style>
-</head>
-<body>
-<h1>MTA Ridership Around Madison Square Garden — 2026 Knicks Playoff Run</h1>
-<p>
-Every bubble below is a subway station complex next to Madison Square Garden —
-the two 34&nbsp;St–Penn Station complexes and 34&nbsp;St–Herald&nbsp;Sq — and
-every frame is one hour between April 10 and June 12, 2026, the Knicks'
-playoff run. Bubbles grow with hourly ridership; days are colored by whether
-the Knicks played at home (orange-red), away (gold), or not at all (blue).
-Away games are the control: the same fans are watching, but nobody is walking
-out of MSG into the subway, so if home nights surge and comparable away and
-no-game nights don't, the extra riders are the arena crowd. Scrub to a home
-game's post-game hours — say Sat Apr 18 around 9&nbsp;PM, or Tue May 19 at
-11&nbsp;PM — and compare the same hours one day later.
-</p>
-<iframe src="ridership_map.html" title="Animated map of hourly MTA ridership near MSG"></iframe>
-<footer>
-Data: MTA Subway Hourly Ridership via
-<a href="https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership/5wq4-mkjj">data.ny.gov, dataset 5wq4-mkjj</a>.
-Ridership values are MTA estimates at hourly granularity.
-Code is MIT licensed; this writeup is
-<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.
-</footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sports Lights Up NYC Transit</title>
+    <link rel="stylesheet" href="app.css" />
+    <script
+      src="https://cdn.plot.ly/plotly-2.35.2.min.js"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <header id="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <select id="eventSelect" aria-label="Event"></select>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="num" id="statRiders">—</span
+          ><span class="lbl">riders this hour</span>
+        </div>
+        <div class="stat">
+          <span class="num" id="statRevenue">—</span
+          ><span class="lbl">est. fare revenue</span>
+        </div>
+        <div class="stat">
+          <span class="num" id="statClock">—</span
+          ><span class="lbl" id="statDay">—</span>
+        </div>
+        <button id="dataToggle" aria-label="Toggle day comparison charts">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 3v18h18" />
+            <path d="M18 17V9" />
+            <path d="M13 17V5" />
+            <path d="M8 17v-3" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div id="dataPanel" class="hidden">
+      <div class="panel-header">
+        <span>Day-by-day comparison</span>
+        <button id="dataClose" aria-label="Close">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="chart-label">Riders per day</div>
+      <div id="chartRidership" class="chart"></div>
+      <div class="chart-label">Revenue over time</div>
+      <div id="chartRevenue" class="chart"></div>
+    </div>
+
+    <footer id="timeline">
+      <div id="nowShowing">
+        <span id="nowDate">—</span>
+        <span id="nowGame" class="chip"></span>
+        <span id="dayTotals" class="day-totals"></span>
+      </div>
+      <div id="days" class="days"></div>
+      <div class="scrubber">
+        <button id="playBtn" aria-label="Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <polygon points="6 3 20 12 6 21 6 3" />
+          </svg>
+        </button>
+        <input id="hour" type="range" min="6" max="23" value="6" step="1" />
+        <span id="hourLabel" class="hourLabel">6 AM</span>
+      </div>
+    </footer>
+
+    <div id="loading">loading live MTA data…</div>
+
+    <script src="sources/mta.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

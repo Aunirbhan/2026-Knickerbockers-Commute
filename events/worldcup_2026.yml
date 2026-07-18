@@ -1,0 +1,23 @@
+id: worldcup_2026
+display_name: "2026 World Cup at MetLife (NY/NJ)"
+sport: soccer
+schedule_source: manual   # balldontlie has no soccer -- schedule is hand-authored
+window:
+  start: "2026-07-10"
+  end: "2026-07-20"
+station_scope: all_nyc
+map:
+  center: {lat: 40.7128, lon: -73.9800}
+  zoom: 10
+theme:
+  accent: "#5B8A2B"
+  home: "#5B8A2B"
+  away: "#6E3FA3"
+# MetLife Stadium hosts the 2026 final on July 19. Placeholder matchup until set;
+# edit these once the finalists are known. Colors are the two nations' flags.
+games:
+  - date: "2026-07-19"
+    matchup: "Final"
+    detail: "2026 FIFA World Cup Final — MetLife Stadium"
+    colors: ["#00843D", "#FFCD00"]
+    home: true

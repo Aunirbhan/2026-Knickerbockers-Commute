@@ -1,0 +1,5 @@
+{
+  "outputDirectory": "docs",
+  "buildCommand": false,
+  "trailingSlash": false
+}
